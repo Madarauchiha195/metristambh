@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 90px;
+    position: relative;
+  }
+  
+  header nav a {
+    color: #ffffff;
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    position: relative;
+    transition: color 0.2s;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    position: relative;
+  }
+  
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .nav-links a.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+    
+
+
+.break {
+    text-align: center;
+    font-size: larger;
+    font-weight: 500;
+    margin-top: 0px;
+    font-size: 50px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+    position: relative;
+    left: 100px;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    gap: 20px;
+    position: relative;
+    opacity: 1;
+    transform: translateY(50px);
+    min-height: 300px; 
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.project.loaded {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+}
+
+.lazy-load {
+    width: 400px;
+    height: 250px;
+    object-fit: cover;
+    align-self: center;
+    animation: fadeInImage 1s ease forwards;
+    border: 3px solid transparent; 
+    transition: transform 0.5s ease, border 0.5s ease;
+    
+}
+.lazy-load:hover {
+    border-color: white;
+    transform: scale(1.05);
+    /* animation: border 0.5s linear forwards; */
+}
+
+
+
+.project .line {
+    width: 2px;
+    background-color: white;
+    height: 0;
+    opacity: 0;
+    animation: growLine 0.8s ease forwards;
+    animation-delay: 1s;
+
+}
+
+.project .text {
+    flex: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInText 1.5s ease forwards;
+    animation-delay: 1.5s;
+}
+
+.project .text h6 {
+    font-size: 20px;    
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInLineByLine 1s ease forwards;
+}
+
+.project .text p {
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeInLineByLine 1s ease forwards;
+}
+.project-placeholder {
+    height: 300px; 
+    background: rgba(0, 0, 0, 0);
+    /* border: 1px dashed rgba(255, 255, 255, 0.5); */
+}
+
+
+
+
+/* Animations */
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes growLine {
+    from {
+        height: 0;
+        opacity: 0;
+    }
+    to {
+        height: 250px; /* Matches the height of the image */
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLineByLine {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* New Styles for "Go to Top" Button */
+.go-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.go-to-top:hover {
+    transform: scale(1.1);
+}
+
+.go-to-top::before {
+    content:'';
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid black;
+    transform: translateY(-2px);
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+
+
+
+/* Lightbox Modal */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    text-align: center;
+    background: black;
+    border-radius: 10px;
+    padding: 20px;
+    top: 30px;
+}
+
+.lightbox img {
+    width: 100%;
+    height: 70vh;
+}
+
+.lightbox-thumbnails {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.lightbox-thumbnails img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: border 0.3s ease;
+}
+
+.lightbox-thumbnails img:hover {
+    border-color: white;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-100%);
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    user-select:none;
+
+}
+
+.lightbox-prev {
+    left: 50px;
+    border-radius: 100px;
+    height: 50px;
+    width: 50px;
+}
+
+.lightbox-next {
+    right: 50px;
+    border-radius: 100px;
+    height: 50px;
+    width: 50px;
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    border-radius: 100px;
+    height: 50px;
+    width: 50px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .lightbox img {
+        max-height: 60vh;
+    }
+
+    .lightbox-thumbnails img {
+        width: 50px;
+        height: 50px;
+    }
+}

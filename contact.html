@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <script src="contact.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a class="logoclass" href="#"><img src="photos/logo.png" alt="Logo"></a></div>
+        <nav>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#main">About</a>
+                <a href="profile.html">Portfolio</a>
+                <a href="#" class="active">Contact</a>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <div class="break">CONTACT US</div>
+    <br>
+    <br>
+    <div class="cf-container">
+        <p class="cf-subtitle">
+            Email directly metristambh@gmail.com or fill out the form below and we will be in touch.
+        </p>
+    
+        <div class="cf-content-wrapper">
+            <!-- Contact Form -->
+            <div class="cf-form-section">
+                <form id="contactForm" onsubmit="return handleSubmit(event)">
+                    <div class="cf-name-group">
+                        <div class="cf-form-group">
+                            <label for="firstName" class="cf-label">First Name <span class="cf-required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" class="cf-input" required>
+                            <span class="cf-error-message" id="firstNameError"></span>
+                        </div>
+                        <div class="cf-form-group">
+                            <label for="lastName" class="cf-label">Last Name <span class="cf-required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" class="cf-input" required>
+                            <span class="cf-error-message" id="lastNameError"></span>
+                        </div>
+                    </div>
+    
+                    <div class="cf-form-group">
+                        <label for="email" class="cf-label">Email <span class="cf-required">*</span></label>
+                        <input type="email" id="email" name="email" class="cf-input" required>
+                        <span class="cf-error-message" id="emailError"></span>
+                    </div>
+    
+                    <div class="cf-form-group">
+                        <label for="subject" class="cf-label">Subject <span class="cf-required">*</span></label>
+                        <input type="text" id="subject" name="subject" class="cf-input" required>
+                        <span class="cf-error-message" id="subjectError"></span>
+                    </div>
+    
+                    <div class="cf-form-group">
+                        <label for="message" class="cf-label">Message <span class="cf-required">*</span></label>
+                        <textarea id="message" name="message" rows="5" class="cf-textarea" required></textarea>
+                        <span class="cf-error-message" id="messageError"></span>
+                    </div>
+    
+                    <button type="submit" id="submitButton" class="cf-button">
+                        <span class="cf-button-text">SUBMIT</span>
+                        <span class="cf-spinner cf-hidden"></span>
+                    </button>
+                </form>
+            </div>
+    
+            <!-- Office Information and Map -->
+            <div class="cf-info-section">
+                <div class="cf-office-info">
+                    <h2>OUR OFFICE</h2>
+                    <address class="cf-address">
+                        91 Springboard, ORR<br>
+                        Service Lane, Mahadevpura,<br>
+                        Bengaluru, Karnataka<br>
+                        -560048
+                    </address>
+                </div>
+                
+                <div class="cf-map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.3652411545897!2d77.69711531482233!3d13.0126899907921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1196bb3b9c31%3A0x5c2b2a25b3c99b3a!2s91springboard%20Mahadevpura!5e0!3m2!1sen!2sin!4v1679900095101!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="cf-toast">
+        <div class="cf-toast-content">
+            <span id="toastMessage"></span>
+        </div>
+    </div>
+</body>
+</html>
